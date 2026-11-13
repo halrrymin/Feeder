@@ -10,6 +10,7 @@ import com.nononsenseapps.feeder.openai.OpenAIApi.TranslationResult
 import com.nononsenseapps.feeder.openai.OpenAIApi.TranslationResult.ErrorAction
 import com.nononsenseapps.feeder.openai.canTranslate
 import com.nononsenseapps.feeder.openai.canUseAsTranslationApi
+import com.nononsenseapps.feeder.openai.isGoogleTranslation
 import com.nononsenseapps.feeder.openai.isDeepL
 import com.nononsenseapps.feeder.openai.isLocalTranslation
 import com.nononsenseapps.feeder.ui.compose.feed.FeedListItem
@@ -464,6 +465,7 @@ class TranslationManager(
             when {
                 settings.isLocalTranslation -> "local"
                 settings.isDeepL -> "deepl"
+                settings.isGoogleTranslation -> "google"
                 else -> "openai"
             }
         return filePathProvider.cacheDir
